@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virat Kohli's Journey</title>
+    <style>
+        /* Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #eaeff2, #f3f4f6);
+            color: #333;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* Parallax Header with Enhanced Glow and Gradient Animation */
+        header {
+            background: url('https://m.economictimes.com/thumb/msid-98588469,width-1599,height-1064,resizemode-4,imgsize-48422/ahmedabad-indian-batter-virat-kohli-celebrates-after-scoring-a-century-during-t-.jpg') center/cover no-repeat fixed;
+            color: #fff;
+            padding: 6em 1em;
+            text-align: center;
+            position: relative;
+            animation: backgroundFade 5s infinite alternate;
+        }
+        @keyframes backgroundFade {
+            0% { background-color: rgba(0, 0, 0, 0.3); }
+            50% { background-color: rgba(255, 99, 71, 0.3); }
+            100% { background-color: rgba(0, 0, 0, 0.3); }
+        }
+        header h1 {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 99, 71, 0.6), 0 0 20px rgba(255, 99, 71, 0.8);
+            animation: pulseGlow 1.5s infinite alternate;
+        }
+        header h2 {
+            font-weight: 300;
+            margin: 0.5em 0;
+            font-size: 1.5em;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1s;
+        }
+
+        /* Keyframe Animations */
+        @keyframes pulseGlow {
+            0% { text-shadow: 0 0 10px #ff6347, 0 0 20px #ff6347; }
+            100% { text-shadow: 0 0 20px #ff6347, 0 0 30px #ff6347; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        /* Container Styling */
+        .container {
+            max-width: 1200px;
+            margin: 2em auto;
+            padding: 0 1.5em;
+            opacity: 0;
+            animation: fadeInUp 1.2s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        /* Scroll-Triggered Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 1s ease-in-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline Section */
+        .timeline {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2em;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            margin-bottom: 3em;
+        }
+        .timeline h2 {
+            color: #ff6347;
+            text-align: center;
+            margin-bottom: 1em;
+            font-size: 1.8em;
+        }
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.8em;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .timeline-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .timeline-item img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            margin-right: 1em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .timeline-item h3 {
+            color: #ff6347;
+            font-size: 1.3em;
+            margin: 0;
+        }
+
+        /* Career Background Section */
+        .career-background {
+            background: linear-gradient(to right, #ff6347, #ff7e54);
+            color: #fff;
+            padding: 2em;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-bottom: 3em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeInUp 1.2s ease forwards;
+        }
+        .career-background h2 {
+            font-size: 1.8em;
+            margin-bottom: 1em;
+        }
+        .career-background p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        /* Fan Zone Section */
+        .fan-zone {
+            text-align: center;
+            margin: 3em 0;
+        }
+        .fan-zone img {
+            width: 200px;
+            height: 200px;
+            border-radius: 10px;
+            margin: 0.5em;
+            transition: transform 0.4s, box-shadow 0.3s;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            animation: float 2s ease-in-out infinite;
+        }
+        .fan-zone img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.5);
+        }
+        .fan-zone button {
+            background: #ff6347;
+            border: none;
+            padding: 0.8em 1.8em;
+            font-size: 1.1em;
+            color: #fff;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 1em;
+            transition: background 0.3s, box-shadow 0.3s;
+            box-shadow: 0 6px 12px rgba(255, 99, 71, 0.6);
+        }
+        .fan-zone button:hover {
+            background: #e55540;
+            box-shadow: 0 6px 14px rgba(255, 99, 71, 0.8);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #ffefeb;
+            padding: 2em;
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+        }
+        .stat-box {
+            width: 150px;
+            padding: 1.8em;
+            background: #fff;
+            border: 3px solid #ff6347;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s;
+            animation: bounce 1.8s infinite;
+        }
+        .stat-box img {
+            width: 60px;
+            margin-bottom: 0.5em;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .stats {
+                flex-direction: column;
+                gap: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Virat Kohli: The Champion's Journey</h1>
+        <h2>From U19 Glory to Cricket Legend</h2>
+    </header>
+
+    <div class="container">
+        <!-- Career Background Section -->
+        <section class="career-background reveal">
+            <h2>Career Background</h2>
+            <p>From his debut as a young, talented U19 champion to his rise as one of the most celebrated cricketers in the world, Virat Kohli has redefined dedication and sportsmanship. Known for his aggressive style and unyielding spirit, Kohli has set numerous records, guiding Team India to victory across formats and achieving milestones that inspire millions worldwide.</p>
+        </section>
+
+        <!-- Timeline Section -->
+        <section class="timeline reveal">
+            <h2>Career Timeline</h2>
+            <!-- Timeline items can be added here -->
+        </section>
+
+        <!-- Fan Zone Section -->
+        <section class="fan-zone reveal">
+            <h2>Fan Zone</h2>
+            <div>
+                <img src="https://images.tv9hindi.com/wp-content/uploads/2023/07/virat-kohli-500-matches-records-1.jpg" alt="Fan 1">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.vrYkSBzCCnltmiX87NvVgAHaEK&pid=Api&P=0&h=180" alt="Fan 2">
+                <img src="https://tse4.mm.bing.net/th?id=OIP.4E1mk5isRW2IAguaOiXclAHaFG&pid=Api&P=0&h=180" alt="Fan 3">
+                <img src="https://tse3.mm.bing.net/th?id=OIP.xPgvQQgzWaAfxlFytpG1eAHaNK&pid=Api&P=0&h=180" alt="Fan 4">
+            </div>
+            <button onclick="fanMessage()">Share a Message</button>
+            <p id="fanMessage"></p>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats reveal">
+            <h2>Dynamic Stats</h2>
+            <div class="stat-box">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.rjb2FT637LBJKXbSppCFHwHaEK&pid=Api&P=0&h=180" alt="Matches Played">
+                <p>Matches Played: 500+</p>
+            </div>
+            <div class="stat-box">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.Eos3YzZUPddB47RKB-XNjQHaEK&pid=Api&P=0&h=180" alt="Trophies">
+                <p>Trophies Won: 25+</p>
+            </div>
+            <div class="stat-box">
+                <img src="https://tse2.mm.bing.net/th?id=OIP.PpDA1278Tt4mnS5adbOsewHaED&pid=Api&P=0&h=180" alt="Runs Scored">
+                <p>Runs Scored: 25,000+</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Scroll-triggered animation
+        const reveals = document.querySelectorAll('.reveal');
+        window.addEventListener('scroll', () => {
+            reveals.forEach(reveal => {
+                const revealTop = reveal.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (revealTop < windowHeight - 100) {
+                    reveal.classList.add('active');
+                }
+            });
+        });
+
+        // Fan message prompt
+        function fanMessage() {
+            let message = prompt("Share your message for Virat:");
+            document.getElementById("fanMessage").innerText = message ? "Your Message: " + message : "No message shared.";
+        }
+    </script>
+</body>
+</html>
